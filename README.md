@@ -1,8 +1,3 @@
-# LightGCN Collaborative Filtering: An Empirical Study on GNN Over-Smoothing
-
-A PyTorch Geometric implementation of **LightGCN** (He et al., SIGIR 2020) evaluated on the **MovieLens-100K** (`ua.base` / `ua.test`) benchmark. Beyond building a fully vectorized training and evaluation pipeline, this project conducts an ablation study across message-passing depths ($L \in \{1, 3, 6\}$) to demonstrate how deeper neighborhood aggregation triggers **graph over-smoothing** on small-world bipartite interaction graphs.
-
----
 
 # LightGCN Collaborative Filtering: An Empirical Study on GNN Over-Smoothing
 
