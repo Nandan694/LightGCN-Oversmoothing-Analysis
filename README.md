@@ -3,17 +3,6 @@
 
 A PyTorch Geometric implementation of **LightGCN** (He et al., SIGIR 2020) evaluated on the **MovieLens-100K** (`ua.base` / `ua.test`) benchmark. Beyond building a fully vectorized training and evaluation pipeline, this project conducts an ablation study across message-passing depths (`NUM_LAYERS` = 1, 3, 6) to demonstrate how deeper neighborhood aggregation triggers **graph over-smoothing** on small-world bipartite interaction graphs.
 
----
-
-## 1. Architecture & Engineering Highlights
-
-* **Bipartite Node-Offset Wiring:** Maps 943 users to node indices `[0, 942]` and shifts 1,682 items by `+943` to `[943, 2624]` within a unified 2,625-node graph. Interactions are stacked bidirectionally (`User <-> Item`) into an `edge_index` tensor of shape `[2, 181140]`.
-* **Vectorized Rejection Negative Sampling:** Uses an O(1) boolean lookup matrix (`train_mat` of shape `[943, 1682]`) and iterative boolean masking (`while bad.any()`) to resample collided items exclusively for affected batch slots without Python `for` loops.
-* **Bayesian Personalized Ranking (BPR) & Layer-0 L2 Regularization:** Optimizes pairwise ranking margins by penalizing instances where an unwatched item (`neg_score`) scores higher than a watched item (`pos_score`). Rat# LightGCN Collaborative Filtering: An Empirical Study on GNN Over-Smoothing
-
-A PyTorch Geometric implementation of **LightGCN** (He et al., SIGIR 2020) evaluated on the **MovieLens-100K** (`ua.base` / `ua.test`) benchmark. Beyond building a fully vectorized training and evaluation pipeline, this project conducts an ablation study across message-passing depths (`NUM_LAYERS = 1, 3, 6`) to demonstrate how deeper neighborhood aggregation triggers **graph over-smoothing** on small-world bipartite interaction graphs.
-
----
 
 ## 1. Architecture & Engineering Highlights
 
